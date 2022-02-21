@@ -16,4 +16,4 @@ ESX.RegisterCommand('togglehud', 'user', function(xPlayer, args, user)
 			TriggerClientEvent('chatMessage', source, "[SYNTAX]", {255, 0, 0}, "/togglehud [on/off]") 
 		end
 	end
-end, true, {help = "Toggles the hud on and off"})
+end, false, {help = "Toggles the hud on and off"})
