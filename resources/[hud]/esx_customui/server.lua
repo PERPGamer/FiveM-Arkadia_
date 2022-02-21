@@ -1,4 +1,9 @@
-TriggerEvent('es:addCommand', 'togglehud', function(source, args)
+ESX = nil
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
+ESX.RegisterCommand('togglehud', 'user', function(xPlayer, args, user)
+	local source = xPlayer.source
 	if not args then 
 		TriggerClientEvent('chatMessage', source, "[SYNTAX]", {255, 0, 0}, "/togglehud [on/off]") 
 	else
@@ -11,4 +16,6 @@ TriggerEvent('es:addCommand', 'togglehud', function(source, args)
 			TriggerClientEvent('chatMessage', source, "[SYNTAX]", {255, 0, 0}, "/togglehud [on/off]") 
 		end
 	end
+end, function(xPlayer, args, user)
+	TriggerClientEvent('chat:addMessage', xPlayer.source, { args = { '^1SYSTEM', 'Insufficient Permissions.' } })
 end, {help = "Toggles the hud on and off"})
