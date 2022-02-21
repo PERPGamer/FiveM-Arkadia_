@@ -136,6 +136,8 @@ AddEventHandler('esx:setAccountMoney', function(account)
 		SendNUIMessage({action = "setValue", key = "bankmoney", value = "$"..account.money})
 	elseif account.name == "black_money" then
 		SendNUIMessage({action = "setValue", key = "dirtymoney", value = "$"..account.money})
+	elseif account.name == 'money' then
+		SendNUIMessage({action = "setValue", key = "money", value = "$"..e})
 	end
 end)
 
@@ -147,11 +149,6 @@ end)
 RegisterNetEvent('esx:setJob2')
 AddEventHandler('esx:setJob2', function(job2)
   SendNUIMessage({action = "setValue2", key = "job2", value = job2.label.." - "..job2.grade_label, icon2 = job2.name})
-end)
-
-RegisterNetEvent('es:activateMoney')
-AddEventHandler('es:activateMoney', function(e)
-	SendNUIMessage({action = "setValue", key = "money", value = "$"..e})
 end)
 
 RegisterNetEvent('esx_customui:updateStatus')
